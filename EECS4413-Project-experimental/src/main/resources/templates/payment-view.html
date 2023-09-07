@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+	body{
+	  background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+	  background: linear-gradient(to right, #25c481, #25b7c4);
+	  font-family: 'Roboto', sans-serif;
+	}
+
+      #container {
+        width: 80%;
+        margin: 0 auto;
+        background: linear-gradient(to left, #25c481, rgb(214, 215, 243));
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        display: flex;
+      }
+      #left {
+        flex-basis: 60%;
+        padding-right: 20px;
+      }
+      #right {
+        flex-basis: 40%;
+        padding-left: 20px;
+        border-left: 1px solid #ccc;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 0;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      label {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      input[type="text"],
+      input[type="email"] {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+      .card-input {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+      .card-input label {
+        margin-bottom: 5px;
+      }
+      .card-input input[type="text"] {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        flex-grow: 1;
+      }
+      .card-input .row {
+        display: flex;
+        justify-content: space-between;
+      }
+      .card-input .row .col-3 {
+        flex-basis: 30%;
+        margin-right: 10px;
+      }
+     input[type=submit] {
+    background-color: #25c481; /* change button background color */
+    border: 1px solid #ccc;
+    color: #222;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+input[type=submit]:hover {
+    background-color: #25b7c4;
+    color: #fff;
+    box-shadow: 0px 0px 20px #25b7c4;
+    transition: 0.5s;
+}
+    </style>
+   
+
+  </head>
+  
+  
+  
+  
+  
+  
+  
+  <body>
+    <div id="container">
+      <div id="left">
+        <h1>Winning Bidder</h1>
+        <form method="get" action="/process-payment">
+        	
+                <input type="hidden" name="username" th:value="${user.username}" />
+                <input type="hidden" name="selectedProduct" th:value="${product.id}" />
+                <input type="hidden" name="productId" th:value="${product.id}" />
+          <label for="first-name"><p th:text="${user.firstname}"></label>
+          
+
+          <label for="last-name"><p th:text="${user.lastname}"></label>
+          
+
+	         <label for="name">Address</label>
+	         <p th:text="${address}"></p>
+	         
+
+          <label for="total-cost">Total Cost</label>        
+		  <p>$<a th:text="${totalAmount}"></a></p>
+
+          
+        
+      </div>
+    <div id="right">
+		
+  <h2>Payment Details</h2>
+  
+  
+  <label for="card-number">Card Number</label>
+  <input type="text" id="creditCardNumber" name="creditCardNumber" required>
+<div>
+  <label for="name-on-card">Name on Card</label>
+  <input type="text" id="nameOnCard" name="nameOnCard" required>
+  
+  </div>
+
+  <div>
+    <label>Expiration Date</label>
+    <div>
+  
+      <input type="text" id="expirationDate" name="expirationDate" placeholder="MM/YY" required><br>
+    </div>
+  </div>
+
+  <label for="security-code">Security Code</label>
+  <div>
+  <input type="text" id="securityCode" name="securityCode" required><br>
+  </div>
+
+	<label class="container">Expedited Shipping +$15
+  	<input type="checkbox" id="expedited" name="expedited">
+	</label>
+  <input type="submit" value="Confirm Payment">
+</div>
+</form>
+
+
+  </body>
+</html>
+
+
